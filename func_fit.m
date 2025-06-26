@@ -29,8 +29,12 @@ for i = k:N-k
     y(i) = sum(x(i-k+1:i))/k;
     z(i) = x(i:-1:i-k+1)*a;
 end 
-
+% To avoid overshooting max limit of +-1 we can scale the z
+z = 0.90*z;
 figure;
 plot(x_(1:1000)); hold on;
 plot(y(1:1000),'g');
 plot(z(1:1000),'r');
+
+
+% Check the sounds of x, x_, y and z
